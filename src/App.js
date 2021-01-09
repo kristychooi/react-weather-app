@@ -1,23 +1,14 @@
 import React from "react";
 import "./App.css";
 import Search from "./Search.js";
+import Footer from "./Footer.js";
 
 export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>Weather App</h1>
-        <Search />
-        <footer>
-          <a
-            href="https://github.com/kristychooi/react-weather-app"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open-source code
-          </a>{" "}
-          by Kristy Chooi
-        </footer>
+        <Search defaultCity="Sydney,AU" />
+        <Footer />
       </div>
     </div>
   );

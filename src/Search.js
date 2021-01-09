@@ -1,19 +1,24 @@
 import React, { useState } from "react";
 import axios from "axios";
+import WeatherInfo from "./WeatherInfo.js";
 
 export default function Search() {
   const [city, setCity] = useState("");
   const [loaded, setLoaded] = useState(false);
-  const [weather, setWeather] = useState("");
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
   function displayWeather(response) {
+    console.log(response.data);
     setLoaded(true);
-    setWeather({
+    setWeatherData({
+      ready: true,
+      city: response.data.name,
+      country: response.data.sys.country,
       temperature: response.data.main.temp,
-      description: response.data.weather[0].description,
-      humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
-      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      humidity: response.data.main.humidity,
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
     });
   }
 
@@ -35,19 +40,16 @@ export default function Search() {
     </form>
   );
 
-  if (loaded === true) {
+  if (weatherData.ready) {
     return (
       <div className="WeatherDisplay">
         {form}
-        <ul>
-          <li>Temperature: {Math.round(weather.temperature)}°F </li>
-          <li>Humidity: {weather.humidity}%</li>
-          <li>Wind: {weather.wind} km/h</li>
-          <li>
-            <img src={weather.icon} alt={weather.description} />
-          </li>
-          <li>{weather.description}</li>
-        </ul>
+        <WeatherInfo details={weatherData} />
+        {/* <WeatherForecast
+          city={weatherData.city}
+          country={weatherData.country}
+          timezone={weatherData.timezone}
+        /> */}
       </div>
     );
   } else {
