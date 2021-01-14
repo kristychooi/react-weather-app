@@ -6,12 +6,12 @@ import WeatherForecast from "./WeatherForecast.js";
 import FormattedDate from "./FormattedDate.js";
 
 export default function Weather(props) {
-  const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
 
   function displayWeather(response) {
     console.log(response.data);
-  
+
     setWeatherData({
       ready: true,
       date: new Date(response.data.dt * 1000),
@@ -26,18 +26,12 @@ export default function Weather(props) {
     });
   }
 
-  function search() {
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=080f1afef2a9a2ea9659284510c483ad&units=imperial`;
-    axios.get(`${apiUrl}`).then(displayWeather);
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
     search(city);
   }
 
   function updateCity(event) {
-    event.preventDefault();
     setCity(event.target.value);
   }
 
@@ -47,6 +41,11 @@ export default function Weather(props) {
       <input type="submit" value="Search" />
     </form>
   );
+
+  function search() {
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=080f1afef2a9a2ea9659284510c483ad&units=imperial`;
+    axios.get(`${apiUrl}`).then(displayWeather);
+  }
 
   if (weatherData.ready) {
     return (
@@ -61,6 +60,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    return <div className="WeatherDisplay">{form}</div>;
+    search();
+    return "Loading...";
   }
 }
