@@ -10,8 +10,6 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function displayWeather(response) {
-    console.log(response.data);
-
     setWeatherData({
       ready: true,
       date: new Date(response.data.dt * 1000),
@@ -53,7 +51,7 @@ export default function Weather(props) {
         {form}
         <FormattedDate date={weatherData.date} />
         <WeatherInfo details={weatherData} />
-        <WeatherForecast />
+        <WeatherForecast city={weatherData.city} />
         {/* // city={weatherData.city}
           // country={weatherData.country}
           // timezone={weatherData.timezone}  */}
