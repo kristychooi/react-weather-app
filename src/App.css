@@ -1,8 +1,8 @@
-.App {
-  font-family: sans-serif;
-}
-
-ul {
-  list-style: none;
-  padding-left: 0;
+.container {
+  border-radius: 25px;
+  background-color: #94cfd3;
+  color: #ffffff;
+  max-width: 60%;
+  margin-top: 50px;
+  border: solid black 0.5px;
 }

@@ -13,24 +13,58 @@ export default function WeatherForecast(props) {
     setLoaded(true);
   }
 
-  if (loaded && props.city === forecast.city.name) {
+  if (loaded) {
     return (
-      <div className="WeatherForecast row">
-        {/* Loopingin React */}
-        {forecast.list.slice(0, 5).map(function (forecastItem) {
+      <div className="WeatherForecast">
+        {/* Loopingin React
+        {forecast.list.slice(0, 6).map(function (forecastItem) {
           return <WeatherForecastPreview data={forecastItem} />;
-        })}
-        {/* Or simpler option without looping
-        <WeatherForecastPreview data={forecast.list[0]} />
-        <WeatherForecastPreview data={forecast.list[1]} />
-        <WeatherForecastPreview data={forecast.list[2]} />
-        <WeatherForecastPreview data={forecast.list[3]} />
-        <WeatherForecastPreview data={forecast.list[4]} />
-        <WeatherForecastPreview data={forecast.list[5]} /> */}
+        })} */}
+        {/* Or simpler option without looping */}
+        <ul>
+          <li>
+            <WeatherForecastPreview
+              temp={forecast.daily[1].temp.max}
+              icon={forecast.daily[1].weather[0].icon}
+              description={forecast.daily[1].weather[0].description}
+              unformattedDay={forecast.daily[1].dt}
+            />
+          </li>
+          <li>
+            <WeatherForecastPreview
+              temp={forecast.daily[2].temp.max}
+              icon={forecast.daily[2].weather[0].icon}
+              description={forecast.daily[2].weather[0].description}
+              unformattedDay={forecast.daily[2].dt}
+            />
+          </li>
+          <li>
+            <WeatherForecastPreview
+              temp={forecast.daily[3].temp.max}
+              icon={forecast.daily[3].weather[0].icon}
+              description={forecast.daily[3].weather[0].description}
+              unformattedDay={forecast.daily[3].dt}
+            />
+          </li>
+          <WeatherForecastPreview
+            temp={forecast.daily[4].temp.max}
+            icon={forecast.daily[4].weather[0].icon}
+            description={forecast.daily[4].weather[0].description}
+            unformattedDay={forecast.daily[4].dt}
+          />
+          <li>
+            <WeatherForecastPreview
+              temp={forecast.daily[5].temp.max}
+              icon={forecast.daily[5].weather[0].icon}
+              description={forecast.daily[5].weather[0].description}
+              unformattedDay={forecast.daily[5].dt}
+            />
+          </li>
+        </ul>
       </div>
     );
   } else {
-    let forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=080f1afef2a9a2ea9659284510c483ad&units=imperial`;
+    let forecastApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.lat}&lon=${props.lon}&appid=080f1afef2a9a2ea9659284510c483ad&units=imperial`;
     axios.get(forecastApiUrl).then(displayForecast);
 
     return null;

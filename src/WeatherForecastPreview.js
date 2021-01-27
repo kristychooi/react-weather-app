@@ -1,22 +1,35 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon.js";
+import "./WeatherForecastPreview.css";
+import Moment from "react-moment";
 
 export default function WeatherForecastPreview(props) {
-  function hours() {
-    let date = new Date(props.data.dt * 1000);
-    let hours = date.getHours();
-    return `${hours}:00`;
-  }
-
   function temperature() {
-    let temperature = Math.round(props.data.main.temp);
+    let temperature = Math.round(props.temp);
     return `${temperature}°F`;
   }
+
+  function description() {
+    let description = props.description;
+    return `${description}`;
+  }
+
   return (
-    <div className="col">
-      {hours()}
-      <WeatherIcon code={props.data.weather[0].icon} />
-      {temperature()}
+    <div>
+      <div className="Days row">
+        <div className="Details col-8">
+          <strong>
+            <Moment format="ddd">{props.unformattedDay * 1000}</Moment>
+          </strong>
+          <br />
+          {temperature()}
+          {/* <br />
+          <div className="text-capitalize">{description()}</div> */}
+        </div>
+        <div className="ForecastIcons col-4">
+          <WeatherIcon code={props.icon} />
+        </div>
+      </div>
     </div>
   );
 }

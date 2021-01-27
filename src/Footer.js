@@ -11,6 +11,7 @@ export default function Footer() {
         Open-source code
       </a>{" "}
       by Kristy Chooi
+    
     </div>
   );
 }

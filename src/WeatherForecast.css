@@ -2,7 +2,15 @@
   padding-top: 100px;
   text-align: center;
 }
+
 .WeatherForecast canvas {
   display: block;
   margin: 10px auto;
 }
+
+.WeatherForecast ul {
+  list-style: none;
+  border: solid black 0.5px;
+  border-radius: 10px;
+}
+

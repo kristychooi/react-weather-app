@@ -1,0 +1,39 @@
+.change-location {
+  padding: 20px 20px 20px 10px;
+  margin-left: 20px;
+}
+
+.change-location-input {
+  font-size: 16px;
+  width: 100%;
+  padding: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.button-section {
+  padding-left: 0;
+}
+
+button.buttons {
+  font-size: 16px;
+  padding: 5px 20px;
+  margin-right: 5px;
+  border-radius: 1%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: 0.4s;
+  font-weight: 20%;
+  border: 1px solid black;
+  background: #fecd1a;
+  border-radius: 10px;
+  transition: all 200ms ease-in-out;
+}
+
+button.buttons:hover {
+  opacity: 0.6;
+}
+
+button.buttons i {
+  padding-right: 5px;
+}

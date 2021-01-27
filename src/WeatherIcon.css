@@ -1,0 +1,9 @@
+.WeatherIcon {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+}

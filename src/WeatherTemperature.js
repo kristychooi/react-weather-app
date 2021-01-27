@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import "./WeatherTemperature.css";
+
+import Celsius from "./images/Celsius.svg";
+import Fahrenheit from "./images/Fahrenheit.svg";
 
 export default function WeatherTemperature(props) {
   const [unit, setUnit] = useState("imperial");
@@ -20,11 +24,11 @@ export default function WeatherTemperature(props) {
   if (unit === `imperial`) {
     return (
       <div className="WeatherTemperature">
-        <span className="temperature">{Math.round(props.fahrenheit)} </span>
-        <span className="Unit">
-          °F |{" "}
+        <span className="Temperature">{Math.round(props.fahrenheit)}</span>
+        <span className="Units">
+          °F |
           <a href="/" onClick={showMetric}>
-            C
+            °C
           </a>
         </span>
       </div>
@@ -32,12 +36,12 @@ export default function WeatherTemperature(props) {
   } else {
     return (
       <div className="WeatherTemperature">
-        <span className="temperature">{Math.round(celsius())} </span>
-        <span className="Unit">
+        <span className="Temperature">{Math.round(celsius())} </span>
+        <span className="Units">
           <a href="/" onClick={showImperial}>
-            °F{" "}
+            °F |
           </a>
-          | C
+          °C
         </span>
       </div>
     );
