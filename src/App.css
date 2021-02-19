@@ -1,7 +1,10 @@
+body {
+  background-color: #f4e5be;
+}
+
 .container {
-  border-radius: 25px;
-  background-color: #94cfd3;
-  color: #ffffff;
+  border-radius: 10px;
+  background-color: #5bd1d7;
   max-width: 60%;
   margin-top: 50px;
   border: solid black 0.5px;

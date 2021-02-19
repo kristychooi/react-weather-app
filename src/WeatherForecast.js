@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import "./WeatherForecast.css";
 import WeatherForecastPreview from "./WeatherForecastPreview.js";
 import axios from "axios";
@@ -23,11 +22,17 @@ export default function WeatherForecast(props) {
         {/* Or simpler option without looping */}
         <ul>
           <li>
+            <h5 className="Heading">
+              <strong>5-Day Forecast</strong>
+            </h5>
+          </li>
+          <li>
             <WeatherForecastPreview
               temp={forecast.daily[1].temp.max}
               icon={forecast.daily[1].weather[0].icon}
               description={forecast.daily[1].weather[0].description}
               unformattedDay={forecast.daily[1].dt}
+              unit={props.unit}
             />
           </li>
           <li>
@@ -36,6 +41,7 @@ export default function WeatherForecast(props) {
               icon={forecast.daily[2].weather[0].icon}
               description={forecast.daily[2].weather[0].description}
               unformattedDay={forecast.daily[2].dt}
+              unit={props.unit}
             />
           </li>
           <li>
@@ -44,6 +50,7 @@ export default function WeatherForecast(props) {
               icon={forecast.daily[3].weather[0].icon}
               description={forecast.daily[3].weather[0].description}
               unformattedDay={forecast.daily[3].dt}
+              unit={props.unit}
             />
           </li>
           <WeatherForecastPreview
@@ -51,6 +58,7 @@ export default function WeatherForecast(props) {
             icon={forecast.daily[4].weather[0].icon}
             description={forecast.daily[4].weather[0].description}
             unformattedDay={forecast.daily[4].dt}
+            unit={props.unit}
           />
           <li>
             <WeatherForecastPreview
@@ -58,6 +66,7 @@ export default function WeatherForecast(props) {
               icon={forecast.daily[5].weather[0].icon}
               description={forecast.daily[5].weather[0].description}
               unformattedDay={forecast.daily[5].dt}
+              unit={props.unit}
             />
           </li>
         </ul>

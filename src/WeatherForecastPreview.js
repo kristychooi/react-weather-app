@@ -6,20 +6,26 @@ import Moment from "react-moment";
 export default function WeatherForecastPreview(props) {
   function temperature() {
     let temperature = Math.round(props.temp);
-    return `${temperature}°F`;
+    let temperatureCelsius = Math.round((temperature - 32) * (5 / 9));
+
+    if (props.unit === "imperial") {
+      return `${temperature}°`;
+    } else {
+      return `${temperatureCelsius}°`;
+    }
   }
 
-  function description() {
-    let description = props.description;
-    return `${description}`;
-  }
+  // function description() {
+  //   let description = props.description;
+  //   return `${description}`;
+  // }
 
   return (
     <div>
       <div className="Days row">
         <div className="Details col-8">
           <strong>
-            <Moment format="ddd">{props.unformattedDay * 1000}</Moment>
+            <Moment format="dddd">{props.unformattedDay * 1000}</Moment>
           </strong>
           <br />
           {temperature()}

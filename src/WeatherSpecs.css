@@ -1,0 +1,10 @@
+ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.specs {
+  margin-top: 10px;
+  font-weight: 500px;
+  font-size: 18px;
+}

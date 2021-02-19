@@ -1,6 +1,9 @@
 .WeatherForecast {
-  padding-top: 100px;
+  padding-top: 80px;
   text-align: center;
+  position: relative;
+  left: 100px;
+  bottom: 180px;
 }
 
 .WeatherForecast canvas {
@@ -12,5 +15,15 @@
   list-style: none;
   border: solid black 0.5px;
   border-radius: 10px;
+  background-color: #b1e8ed;
+  color: #202c30;
+  padding: 10px;
 }
 
+ul {
+  max-width: 250px;
+}
+
+.Heading {
+  padding-top: 20px;
+}

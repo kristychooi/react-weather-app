@@ -1,7 +1,16 @@
-.Temperature {
+.WeatherTemperature {
+  text-align: center;
   font-size: 60px;
+  margin-top: 30px;
+}
+
+.Temperature {
+  font-size: 70px;
 }
 
 .Units {
   font-size: 25px;
+  position: relative;
+  left: 8px;
+  bottom: 24px;
 }

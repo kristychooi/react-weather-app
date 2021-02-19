@@ -4,6 +4,12 @@
   display: block;
 }
 
+.weather-icon img {
+  max-width: 40%;
+  margin-bottom: 20px;
+}
+
+
 body {
   font-family: "Quicksand", sans-serif;
 }
