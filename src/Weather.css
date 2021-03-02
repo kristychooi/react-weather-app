@@ -35,3 +35,7 @@ form {
 .WeatherDisplay {
   max-height: 700px;
 }
+
+.city-column {
+  width: 120px;
+}

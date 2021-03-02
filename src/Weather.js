@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import City from "./City.js";
+import Cities from "./Cities.js";
 import "./Weather.css";
 import WeatherForecast from "./WeatherForecast.js";
 import FormattedDate from "./FormattedDate.js";
@@ -17,17 +18,16 @@ export default function Weather(props) {
 
   useEffect(() => {
     search();
-  }, []);
+  }, [city]);
 
   function displayWeather(response) {
+    console.log(response.data.wind.speed);
     setWeatherData({
       ready: true,
       date: new Date(response.data.dt * 1000),
       city: response.data.name,
       country: response.data.sys.country,
       temperature: response.data.main.temp,
-      temp_max: response.data.main.temp_max,
-      temp_min: response.data.main.temp_min,
       feels_like: response.data.main.feels_like,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -35,8 +35,6 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
       lat: response.data.coord.lat,
       lon: response.data.coord.lon,
-      // sunrise: response.data.sys.sunrise,
-      // sunset: response.data.sys.sunrise,
     });
   }
 
@@ -49,11 +47,8 @@ export default function Weather(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    search();
-  }
-
-  function updateCity(event) {
-    setCity(event.target.value);
+    let city = event.target[0].value;
+    setCity(city);
   }
 
   let form = (
@@ -64,7 +59,6 @@ export default function Weather(props) {
           type="search"
           placeholder="Type a city name"
           autoFocus="on"
-          onChange={updateCity}
         />
         <button type="submit" className="btn">
           <i className="fas fa-search"></i>
@@ -97,7 +91,11 @@ export default function Weather(props) {
           <FormattedDate className="Date" date={localTime.date} />
         </div>
         <div className="row">
-          <div className="col-8 main-body">
+          <div className="city-column">
+            <Cities setCity={setCity} />
+          </div>
+
+          <div className="col-6 main-body">
             <div className="WeatherTemperature-and-Units">
               <WeatherTemperature
                 fahrenheit={weatherData.temperature}

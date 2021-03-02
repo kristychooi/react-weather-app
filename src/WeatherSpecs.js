@@ -4,45 +4,34 @@ import "./WeatherSpecs.css";
 
 export default function WeatherInfo(props) {
   function specs() {
-    let feelsLikeTemperature = Math.round(props.details.feels_like);
-    let feelsLikeTemperatureCelsius = Math.round(
-      (feelsLikeTemperature - 32) * (5 / 9)
+    let feelsLikeTemperatureImperial = Math.round(props.details.feels_like);
+    let feelsLikeTemperatureMetric = Math.round(
+      (feelsLikeTemperatureImperial - 32) * (5 / 9)
     );
 
-    let tempMax = Math.round(props.details.temp_max);
-    let tempMaxCelcius = Math.round((tempMax - 32) * (5 / 9));
-
-    let tempMin = Math.round(props.details.temp_min);
-    let tempMinCelcius = Math.round((tempMin - 32) * (5 / 9));
+    let windSpeedImperial = props.details.wind.toFixed(2);
+    let windSpeedMetric = (windSpeedImperial / 2.237).toFixed(2);
 
     let humidityPercentage = props.details.humidity;
-
-    // let windSpeedKM = windSpeed * 1.609;
-    // windSpeedDisplay.innerHTML = `WIND: ${Math.round(windSpeedKM)} km/h`;
 
     if (props.unit === "imperial") {
       return (
         <div>
           <ul className="specs">
-            <li>Feels like: {feelsLikeTemperature}°</li>
-            <li>Temp max: {tempMax}°</li>
-            <li>Temp min: {tempMin}°</li>
+            <li>Feels like: {feelsLikeTemperatureImperial}°</li>
             <li>Humidity: {humidityPercentage}%</li>
-            <li>Wind: {props.details.wind} km/h</li>
+            <li>Wind: {windSpeedImperial} mph</li>
           </ul>
-          ;
         </div>
       );
     } else {
       return (
         <div>
           <ul className="specs">
-            <li>Feels like: {feelsLikeTemperatureCelsius}°</li>
-            <li>Temp max: {tempMaxCelcius}°</li>
-            <li>Temp min: {tempMinCelcius}°</li>
+            <li>Feels like: {feelsLikeTemperatureMetric}°</li>
             <li>Humidity: {humidityPercentage}%</li>
+            <li>Wind: {windSpeedMetric} mps</li>
           </ul>
-          ;
         </div>
       );
     }

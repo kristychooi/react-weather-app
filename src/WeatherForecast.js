@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./WeatherForecast.css";
 import WeatherForecastPreview from "./WeatherForecastPreview.js";
 import axios from "axios";
@@ -7,12 +7,24 @@ export default function WeatherForecast(props) {
   const [loaded, setLoaded] = useState(false);
   const [forecast, setForecast] = useState(null);
 
+  useEffect(() => {
+    getForecast();
+  }, [props.lat, props.lon]);
+
+  function getForecast() {
+    setLoaded(false);
+    let forecastApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.lat}&lon=${props.lon}&appid=080f1afef2a9a2ea9659284510c483ad&units=imperial`;
+    axios.get(forecastApiUrl).then(displayForecast);
+  }
+
   function displayForecast(response) {
     setForecast(response.data);
     setLoaded(true);
   }
 
-  if (loaded) {
+  if (!loaded) {
+    return null;
+  } else {
     return (
       <div className="WeatherForecast">
         {/* Loopingin React
@@ -72,10 +84,5 @@ export default function WeatherForecast(props) {
         </ul>
       </div>
     );
-  } else {
-    let forecastApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.lat}&lon=${props.lon}&appid=080f1afef2a9a2ea9659284510c483ad&units=imperial`;
-    axios.get(forecastApiUrl).then(displayForecast);
-
-    return null;
   }
 }
