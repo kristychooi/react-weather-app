@@ -15,11 +15,6 @@ export default function WeatherForecastPreview(props) {
     }
   }
 
-  // function description() {
-  //   let description = props.description;
-  //   return `${description}`;
-  // }
-
   return (
     <div>
       <div className="Days row">
@@ -29,8 +24,6 @@ export default function WeatherForecastPreview(props) {
           </strong>
           <br />
           {temperature()}
-          {/* <br />
-          <div className="text-capitalize">{description()}</div> */}
         </div>
         <div className="ForecastIcons col-4">
           <WeatherIcon code={props.icon} />

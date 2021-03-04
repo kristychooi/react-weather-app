@@ -1,5 +1,4 @@
 import React from "react";
-import Moment from "react-moment";
 import "./WeatherSpecs.css";
 
 export default function WeatherInfo(props) {

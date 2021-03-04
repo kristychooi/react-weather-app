@@ -21,7 +21,6 @@ export default function Weather(props) {
   }, [city]);
 
   function displayWeather(response) {
-    console.log(response.data.wind.speed);
     setWeatherData({
       ready: true,
       date: new Date(response.data.dt * 1000),

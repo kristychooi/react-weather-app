@@ -25,11 +25,13 @@ form {
 
 .main-body {
   position: relative;
-  left: 50px;
+  left: 0;
 }
 
 .body {
   margin-top: 20px;
+  position: relative;
+  left: 30px;
 }
 
 .WeatherDisplay {
@@ -39,3 +41,8 @@ form {
 .city-column {
   width: 120px;
 }
+
+.specs-column {
+  padding: 0;
+}
+

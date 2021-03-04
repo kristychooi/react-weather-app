@@ -2,28 +2,15 @@
   list-style: none;
   border: solid black 0.1px;
   border-radius: 10px;
-  background-color: #e8e0ee;
+  background-color: #bed7f7;
   color: #202c30;
   padding: 10px;
   position: relative;
-  right: 100px;
-  bottom: 180px;
+  right: 90px;
+  bottom: 160px;
 }
 
 .Cities li {
   margin: 35px 15px;
 }
 
-.CityIcons img {
-  margin: 30px;
-}
-/* 
-.Left {
-  position: relative;
-  right: 15px;
-}
-
-.Right {
-  position: relative;
-  left: 15px;
-} */

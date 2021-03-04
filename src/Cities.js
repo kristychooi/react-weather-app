@@ -1,6 +1,3 @@
-// import React, { useState } from "react";
-// import SearchWeather from "./SearchWeather.js";
-// import axios from "axios";
 import Paris from "./images/Paris.svg";
 import London from "./images/London.svg";
 import NewYork from "./images/NewYork.svg";
@@ -9,41 +6,34 @@ import Pisa from "./images/Pisa.svg";
 import "./Cities.css";
 
 export default function Cities(props) {
-  // const [city, setCity] = useState("");
-
   function updateCityLondon(event) {
     event.preventDefault();
     let city = "London";
     props.setCity(city);
-    console.log(city);
   }
 
   function updateCityNewYork(event) {
     event.preventDefault();
     let city = "New York";
     props.setCity(city);
-    console.log(city);
   }
 
   function updateCityParis(event) {
     event.preventDefault();
     let city = "Paris";
     props.setCity(city);
-    console.log(city);
   }
 
   function updateCityPisa(event) {
     event.preventDefault();
     let city = "Pisa";
     props.setCity(city);
-    console.log(city);
   }
 
   function updateCitySanFrancisco(event) {
     event.preventDefault();
     let city = "San Francisco";
     props.setCity(city);
-    console.log(city);
   }
 
   return (
