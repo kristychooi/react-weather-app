@@ -13,7 +13,6 @@ import Snow from "./images/Snow.svg";
 import Thunderstorm from "./images/Thunderstorm.svg";
 import Mist from "./images/Mist.svg";
 
-
 export default function WeatherIcon({ code, alt }) {
   const codeMapping = {
     "01d": ClearDay,
@@ -36,6 +35,5 @@ export default function WeatherIcon({ code, alt }) {
     "50n": Mist,
   };
 
-  return <img className="Icon" src={codeMapping[code]} alt={alt} className="WeatherIcon" />;
-
+  return <img className="Icon" src={codeMapping[code]} alt={alt} />;
 }

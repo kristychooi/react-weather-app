@@ -9,6 +9,7 @@ export default function WeatherForecast(props) {
 
   useEffect(() => {
     getForecast();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.lat, props.lon]);
 
   function getForecast() {
@@ -27,11 +28,6 @@ export default function WeatherForecast(props) {
   } else {
     return (
       <div className="WeatherForecast">
-        {/* Loopingin React
-        {forecast.list.slice(0, 6).map(function (forecastItem) {
-          return <WeatherForecastPreview data={forecastItem} />;
-        })} */}
-        {/* Or simpler option without looping */}
         <ul>
           <li>
             <h5 className="Heading">

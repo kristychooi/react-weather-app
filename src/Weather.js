@@ -16,8 +16,10 @@ export default function Weather(props) {
   const [localTime, setLocalTime] = useState({ ready: false });
   const [unit, setUnit] = useState("imperial");
 
+
   useEffect(() => {
     search();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [city]);
 
   function displayWeather(response) {

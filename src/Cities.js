@@ -42,27 +42,31 @@ export default function Cities(props) {
         <ul>
           <li>
             <a href="/" onClick={updateCityLondon}>
-              <img className="CityIcons" src={London} />
+              <img className="CityIcons" src={London} alt="LondonIcon" />
             </a>
           </li>
           <li>
             <a href="/" onClick={updateCityNewYork}>
-              <img className="CityIcons" src={NewYork} />
+              <img className="CityIcons" src={NewYork} alt="NewYorkIcon" />
             </a>
           </li>
           <li>
             <a href="/" onClick={updateCityParis}>
-              <img className="CityIcons" src={Paris} />
+              <img className="CityIcons" src={Paris} alt="ParisIcon" />
             </a>
           </li>
           <li>
             <a href="/" onClick={updateCityPisa}>
-              <img className="CityIcons" src={Pisa} />
+              <img className="CityIcons" src={Pisa} alt="PisaIcon" />
             </a>
           </li>
           <li>
             <a href="/" onClick={updateCitySanFrancisco}>
-              <img className="CityIcons" src={SanFrancisco} />
+              <img
+                className="CityIcons"
+                src={SanFrancisco}
+                alt="sanFranciscoIcon"
+              />
             </a>
           </li>
         </ul>
