@@ -1,9 +1,6 @@
 .WeatherForecast {
   padding-top: 80px;
   text-align: center;
-  position: relative;
-  left: 100px;
-  bottom: 180px;
 }
 
 .WeatherForecast canvas {
@@ -18,9 +15,17 @@
   background-color: #b1e8ed;
   color: #202c30;
   padding: 10px;
-    max-width: 250px;
+  max-width: 250px;
 }
 
 .Heading {
   padding-top: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .WeatherForecast ul {
+    max-width: none;
+    width: 100%;
+
+  }
 }

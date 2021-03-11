@@ -9,3 +9,9 @@ body {
   margin-top: 50px;
   border: solid black 0.5px;
 }
+
+@media only screen and (max-width: 600px) {
+  .container {
+    max-width: 90%;
+  }
+}

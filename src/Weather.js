@@ -16,7 +16,6 @@ export default function Weather(props) {
   const [localTime, setLocalTime] = useState({ ready: false });
   const [unit, setUnit] = useState("imperial");
 
-
   useEffect(() => {
     search();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -83,48 +82,44 @@ export default function Weather(props) {
   if (weatherData.ready && localTime.ready) {
     return (
       <div className="WeatherDisplay">
+        <div className="city-column">
+          <Cities setCity={setCity} />
+        </div>
         <div className="Form">{form}</div>
-
         <div className="City">
           <City city={weatherData.city} country={weatherData.country} />
         </div>
         <div className="Date">
           <FormattedDate className="Date" date={localTime.date} />
         </div>
-        <div className="row">
-          <div className="city-column">
-            <Cities setCity={setCity} />
-          </div>
-
-          <div className="col-6 main-body">
-            <div className="WeatherTemperature-and-Units">
-              <WeatherTemperature
-                fahrenheit={weatherData.temperature}
-                unit={unit}
-                setUnit={setUnit}
-              />
-            </div>
-            <div className="row body">
-              <div className="col-8 icon-description-column">
-                <div className="weather-icon">
-                  <WeatherIcon code={weatherData.icon} />
-                </div>
-                <div className="description text-capitalize">
-                  <WeatherDescription description={weatherData.description} />
-                </div>
-              </div>
-              <div className="col-4 specs-column">
-                <WeatherSpecs details={weatherData} unit={unit} />
-              </div>
-            </div>
-          </div>
-          <div className="col-4">
-            <WeatherForecast
-              lat={weatherData.lat}
-              lon={weatherData.lon}
+        <div className="main-body">
+          <div className="WeatherTemperature-and-Units">
+            <WeatherTemperature
+              fahrenheit={weatherData.temperature}
               unit={unit}
+              setUnit={setUnit}
             />
           </div>
+          <div className="row body">
+            <div className="col-6 icon-description-column">
+              <div className="weather-icon">
+                <WeatherIcon code={weatherData.icon} />
+              </div>
+              <div className="description text-capitalize">
+                <WeatherDescription description={weatherData.description} />
+              </div>
+            </div>
+            <div className="col-6 specs-column">
+              <WeatherSpecs details={weatherData} unit={unit} />
+            </div>
+          </div>
+        </div>
+        <div className="weather-forecast">
+          <WeatherForecast
+            lat={weatherData.lat}
+            lon={weatherData.lon}
+            unit={unit}
+          />
         </div>
       </div>
     );

@@ -26,23 +26,82 @@ form {
 .main-body {
   position: relative;
   left: 0;
+  margin-bottom: 40px;
 }
 
 .body {
   margin-top: 20px;
-  position: relative;
-  left: 30px;
 }
 
 .WeatherDisplay {
+  position: relative;
   max-height: 700px;
 }
 
 .city-column {
   width: 120px;
+  position: absolute;
+  top: 75px;
+  left: -75px;
 }
 
 .specs-column {
   padding: 0;
 }
 
+.main {
+  text-align: center;
+}
+
+.icon-description-column {
+  padding-left: 60px;
+  padding-right: 0;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.specs-column {
+  padding-left: 0;
+  padding-right: 100px;
+  text-align: center;
+}
+
+.weather-forecast {
+  position: absolute;
+  top: 0px;
+  right: -75px;
+}
+
+@media only screen and (max-width: 600px) {
+  .city-column {
+    width: 100%;
+    position: relative;
+    top: -35px;
+    left: auto;
+  }
+
+  form {
+    margin-top: 10px;
+  }
+
+  .form-control {
+    max-width: 180px;
+  }
+
+  .weather-forecast {
+    position: relative;
+    right: auto;
+    top: -80px;
+    padding-bottom: 50px;
+  }
+
+  .City {
+    padding-top: 0;
+  }
+
+  .icon-description-column,
+  .specs-column {
+    text-align: center;
+    padding: 0 10px;
+  }
+}
