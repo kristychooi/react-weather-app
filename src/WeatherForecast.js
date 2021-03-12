@@ -28,12 +28,12 @@ export default function WeatherForecast(props) {
   } else {
     return (
       <div className="WeatherForecast">
+        <div>
+          <h5 className="Heading">
+            <strong>5-Day Forecast</strong>
+          </h5>
+        </div>
         <ul>
-          <li>
-            <h5 className="Heading">
-              <strong>5-Day Forecast</strong>
-            </h5>
-          </li>
           <li>
             <WeatherForecastPreview
               temp={forecast.daily[1].temp.max}
@@ -61,13 +61,15 @@ export default function WeatherForecast(props) {
               unit={props.unit}
             />
           </li>
-          <WeatherForecastPreview
-            temp={forecast.daily[4].temp.max}
-            icon={forecast.daily[4].weather[0].icon}
-            description={forecast.daily[4].weather[0].description}
-            unformattedDay={forecast.daily[4].dt}
-            unit={props.unit}
-          />
+          <li>
+            <WeatherForecastPreview
+              temp={forecast.daily[4].temp.max}
+              icon={forecast.daily[4].weather[0].icon}
+              description={forecast.daily[4].weather[0].description}
+              unformattedDay={forecast.daily[4].dt}
+              unit={props.unit}
+            />
+          </li>
           <li>
             <WeatherForecastPreview
               temp={forecast.daily[5].temp.max}

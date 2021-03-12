@@ -16,18 +16,22 @@ export default function WeatherForecastPreview(props) {
   }
 
   return (
-    <div>
-      <div className="Days row">
-        <div className="Details col-8">
+    <div className="Forecast">
+      <div className="Details">
+        <div className="Day Desktop">
           <strong>
             <Moment format="dddd">{props.unformattedDay * 1000}</Moment>
           </strong>
-          <br />
-          {temperature()}
         </div>
-        <div className="ForecastIcons col-4">
-          <WeatherIcon code={props.icon} />
+        <div className="Day Mobile">
+          <strong>
+            <Moment format="ddd">{props.unformattedDay * 1000}</Moment>
+          </strong>
         </div>
+        <div className="temperature">{temperature()}</div>
+      </div>
+      <div className="ForecastIcons">
+        <WeatherIcon code={props.icon} />
       </div>
     </div>
   );

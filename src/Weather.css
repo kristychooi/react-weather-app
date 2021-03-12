@@ -79,7 +79,7 @@ form {
   .city-column {
     width: 100%;
     position: relative;
-    top: -35px;
+    top: -30px;
     left: auto;
   }
 
@@ -106,5 +106,14 @@ form {
   .specs-column {
     text-align: center;
     padding: 0 10px;
+  }
+
+  .body {
+    padding-bottom: 50px;
+  }
+
+  .WeatherDisplay {
+
+    max-height: 780px;
   }
 }

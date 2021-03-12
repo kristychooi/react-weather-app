@@ -1,5 +1,5 @@
 .WeatherForecast {
-  padding-top: 80px;
+  padding-top: 40px;
   text-align: center;
 }
 
@@ -8,7 +8,7 @@
   margin: 10px auto;
 }
 
-.WeatherForecast ul {
+.WeatherForecast {
   list-style: none;
   border: solid black 0.5px;
   border-radius: 10px;
@@ -20,15 +20,26 @@
 
 .Heading {
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 @media only screen and (max-width: 600px) {
+  .WeatherForecast {
+    max-width: none;
+  }
+
   .WeatherForecast ul {
     max-width: none;
     width: 100%;
-    /* display: inline-block;
-    width: 100%;
-    margin: 0;
-    padding: 0 5px; */
+  }
+
+  .WeatherForecast li {
+    display: inline-block;
+    padding: 5px 5px 0 5px;
+  }
+
+  .Heading {
+    padding-top: 10px;
+    padding-bottom: 0;
   }
 }

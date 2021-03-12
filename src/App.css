@@ -14,4 +14,8 @@ body {
   .container {
     max-width: 90%;
   }
+
+  .App {
+    margin-top: 60px;
+  }
 }
