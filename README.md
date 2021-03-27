@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# react-weather-app
+
+This weather app built in React was my final project in the SheCodes React workshop, using HTML 5, CSS 3, Javascript ES6, and weather API.
+Link to app here: https://chooi-react-weather-app.netlify.app/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
